@@ -71,7 +71,7 @@ namespace NPLTV.Damage
         #region Knockeable
         public virtual void Knock(Vector2 direction, float amount, float time)
         {
-            _motor.AddInstantForce(direction * amount);
+            _motor?.AddInstantForce(direction * amount);
             //Debug.Log("Knocking.....");
         }
         #endregion

@@ -5,49 +5,76 @@ namespace NPLTV.Colosseum.Game.Cameras
 {
     public class ColosseumCameraController : CameraController
     {
-        
-        [SerializeField]
-        private Vector2 _center, _size;
         [SerializeField] private float _updateTick = 1f;
+        [SerializeField] [Range(0f, 1f)] private float _positionLerpTime, _sizeLerpTime;
+        [SerializeField] private float _minSize, _maxSize;
+        [SerializeField] [Range(1f, 10f)] private float _dSize = 2.5f;
 
         private void Start()
         {
             StartCoroutine(UpdateCamera());
         }
 
+        private void FixedUpdate()
+        {
+            if (GameManager.Players.Count == 0 || GameManager.Players == null) return;
+
+            // Update camera size
+            float clampledSize = Mathf.Clamp(size.x / _dSize, _minSize, _maxSize);
+            Debug.Log(camera.aspect);
+
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, clampledSize, _sizeLerpTime);
+            
+            // Update camera position
+            Vector3 cameraPosition = center + offset + extraOffset;
+            float range = (_maxSize - clampledSize) * camera.aspect;
+            cameraPosition = new Vector3(
+                Mathf.Clamp(cameraPosition.x, -range , range),
+                cameraPosition.y,
+                -10
+            );
+
+            transform.position = Vector3.Lerp(
+                transform.position, 
+                cameraPosition, 
+                _positionLerpTime
+            );
+
+            // Set offset
+            SetOffset(Vector2.Max(Vector2.up * clampledSize / 2, Vector2.up * 2));
+        }
+
+        public void SetMaxWidth(float maxWidth)
+        {
+            _maxSize = maxWidth / camera.aspect / 2;
+        }
+
         private IEnumerator UpdateCamera()
         {
-            // For each player...
-            float totalX = 0, totalY = 0, maxX = 0, maxY = 0;
-            foreach (PlayerManager player in GameManager.Players)
+            if (GameManager.Players.Count >= 0)
             {
-                // Add position to a total
-                Vector2 playerPosition = player.Motor.GetPosition();
-                totalX += playerPosition.x;
-                totalY += playerPosition.y;
-
-                // For each other player...
-                foreach (PlayerManager other in GameManager.Players)
+                // For each player...
+                float totalX = 0, totalY = 0, maxX = int.MinValue, maxY = int.MinValue, minX = int.MaxValue, minY = int.MaxValue;
+                foreach (PlayerManager player in GameManager.Players)
                 {
-                    if (player == other) continue;
-
-                    // Get distance
-                    Vector2 otherPosition = other.Motor.GetPosition();
-                    Vector2 distance = new Vector2(
-                        Mathf.Abs(playerPosition.x - otherPosition.x),
-                        Mathf.Abs(playerPosition.y - otherPosition.y)
-                    );
+                    // Add position to a total
+                    Vector2 playerPosition = player.Motor.GetPosition();
+                    totalX += playerPosition.x;
+                    totalY += playerPosition.y;
 
                     // Save it if its the max in
-                    maxX = Mathf.Max(maxX, distance.x);
-                    maxY = Mathf.Max(maxY, distance.y);
+                    maxX = Mathf.Max(maxX, playerPosition.x);
+                    maxY = Mathf.Max(maxY, playerPosition.y);
+                    minX = Mathf.Min(minX, playerPosition.x);
+                    minY = Mathf.Min(minY, playerPosition.y);
                 }
+
+                center = new Vector2(totalX, totalY) / GameManager.Players.Count;
+                size = new Vector2(maxX - minX, maxY - minY);
+
+                yield return new WaitForSeconds(_updateTick);
+            
             }
-
-            _center = new Vector2(totalX, totalY) / GameManager.Players.Count;
-            _size = new Vector2(maxX, maxY);
-
-            yield return new WaitForSeconds(_updateTick);
 
             StartCoroutine(UpdateCamera());
         }
@@ -55,7 +82,10 @@ namespace NPLTV.Colosseum.Game.Cameras
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(_center, _size);
+            Gizmos.DrawWireCube(center, size);
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(center, 0.5f);
         }
     }
 }

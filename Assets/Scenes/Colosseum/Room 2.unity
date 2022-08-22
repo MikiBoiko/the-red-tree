@@ -2650,10 +2650,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   transform: {fileID: 0}
-  lerpTime: 0.5
-  _center: {x: 0, y: 0}
-  _size: {x: 0, y: 0}
-  _updateTick: 1
+  center: {x: 0, y: 0}
+  size: {x: 0, y: 0}
+  offset: {x: 0, y: 0}
+  extraOffset: {x: 0, y: 0}
+  _updateTick: 0.1
+  _positionLerpTime: 0.05
+  _sizeLerpTime: 0.3
+  _minSize: 5
+  _maxSize: 20
 --- !u!81 &2033939127
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2688,7 +2693,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:

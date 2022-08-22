@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using NPLTV.Console;
 
 namespace NPLTV.Player
