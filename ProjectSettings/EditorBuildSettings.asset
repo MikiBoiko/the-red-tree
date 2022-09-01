@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing/Room 1.unity
     guid: 4b01b6ab0ea2b95408a13fc686c4aa2f
   - enabled: 1
-    path: Assets/Scenes/Colosseum/Menu.unity
+    path: Assets/Scenes/Colosseum/Game Selection.unity
     guid: 45d338d9de01a1743b409b35007b14fe
   m_configObjects: {}

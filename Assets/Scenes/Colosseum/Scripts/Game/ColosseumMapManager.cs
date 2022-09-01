@@ -1,11 +1,16 @@
 using UnityEngine;
 
-namespace NPLTV.Colosseum
+namespace NPLTV.Colosseum.Game
 {
-    public class ColosseumMap : MonoBehaviour
+    public class ColosseumMapManager : MonoBehaviour
     {
         [field: SerializeField] public int SizeX { private set; get; }
         [field: SerializeField] public int SizeY { private set; get; }
+
+        private void Start()
+        {
+            ColosseumCameraController.SetMaxWidth(SizeX);
+        }
 
         private void OnDrawGizmos()
         {

@@ -16,14 +16,12 @@ namespace NPLTV.Items
             {
                 {
                     "basic",
-                    new BasicDamageAreaAbility(
+                    new BasicActionAbility(
                         this,
-                        transform.Find("Basic").GetComponent<Damage.DamageArea>(),
-                        0.1f,
                         0.2f,
                         Player.AbilityType.basic,
-                        "Basic Attack",
-                        "The basic ability this weapon does."
+                        "Jab",
+                        "Does a fast punch."
                     )
                 },
                 {

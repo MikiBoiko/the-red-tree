@@ -22,7 +22,6 @@ namespace NPLTV.Player.States
         //protected override void DefenseReleased() => owner.AbilitySystem.GetAbility(AbilityType.defense).Release();
         public override void Jump() => owner.AbilitySystem.GetJump().Press(); //owner.AbilitySystem.GetAbility(AbilityType.jump).Press();
         public override void JumpReleased() => owner.AbilitySystem.GetJump().Release();
-
         public override void Select() => owner.interactables.InteractWithSelected();
     }
 }

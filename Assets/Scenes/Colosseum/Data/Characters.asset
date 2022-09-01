@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69b2a0753a2bdd48b1f98f3d521be20, type: 3}
   m_Name: Characters
   m_EditorClassIdentifier: 
-  characters:
+  dataSheet:
   - name: "H\xE9ctor"
     icon: {fileID: -6448351548455589540, guid: a98e428df76415b44860d281ef093593, type: 3}
+    epithet: The boxer
     prefab: {fileID: 6562321113723600172, guid: f7d28fd503117cf4faa188b1efc6c944, type: 3}

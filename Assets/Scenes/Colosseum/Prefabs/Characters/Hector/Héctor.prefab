@@ -148,6 +148,87 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &5243024122628955678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8078416575192282723}
+  - component: {fileID: 5293795434202063565}
+  - component: {fileID: 6781227089568184002}
+  m_Layer: 0
+  m_Name: Jab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8078416575192282723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243024122628955678}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6116804, w: 0.791105}
+  m_LocalPosition: {x: 1.358, y: 1.118, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6562321113191519002}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -75.422}
+--- !u!58 &5293795434202063565
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243024122628955678}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
+--- !u!114 &6781227089568184002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243024122628955678}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bdb856f8718057419dfde0d250a3feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _trigger: {fileID: 5293795434202063565}
+  _spriteGameObject: {fileID: 0}
+  _knockForce: 350
+  _knockTime: 0.1
+  _damageAmount: 0.25
+--- !u!70 &9116552200432308104
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6562321113723600172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.75}
+  m_Size: {x: 0.7, y: 1.5}
+  m_Direction: 0
 --- !u!58 &4938403111928175085
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -352,6 +433,10 @@ PrefabInstance:
       value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 376413204735340702, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
+      propertyPath: fastFall
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 376413204735340702, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
       propertyPath: jumpForce
       value: 600
       objectReference: {fileID: 0}
@@ -370,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 376413204833898434, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5515379092501829281, guid: a98e428df76415b44860d281ef093593, type: 3}
+      objectReference: {fileID: 9188842818862650001, guid: 0262e4945da330248aeaa5c1eca74565, type: 3}
     - target: {fileID: 376413205278088875, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
       propertyPath: m_Name
       value: Gloves
@@ -405,7 +490,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 376413204274015861, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
+    - {fileID: 376413204735340688, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
+--- !u!1 &6562321113723600172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 376413204735340698, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}
+  m_PrefabInstance: {fileID: 6785593784723721654}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6562321113191519002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 376413205278088876, guid: 8a335ab5f2ae5c14ba4e8bfebb053dfc, type: 3}

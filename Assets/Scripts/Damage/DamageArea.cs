@@ -7,7 +7,7 @@ namespace NPLTV.Damage
     public class DamageArea : MonoBehaviour 
     {
         [SerializeField] private Collider2D _trigger;
-        [SerializeField] private GameObject _spriteGameObject;
+        [SerializeField] private GameObject _spriteGameObject = null;
         [SerializeField] private float _knockForce, _knockTime, _damageAmount;
 
         private void Awake() 
@@ -23,14 +23,14 @@ namespace NPLTV.Damage
 
         private void OnEnable()
         {
-            _spriteGameObject.SetActive(true);
             _trigger.enabled = true;
+            _spriteGameObject?.SetActive(true);
         }
 
         private void OnDisable()
         {
-            _spriteGameObject.SetActive(false);
             _trigger.enabled = false;
+            _spriteGameObject?.SetActive(false);
         }
 
         private IEnumerator ActivateFor(float delay, float holdFor)

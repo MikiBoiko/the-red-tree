@@ -3,12 +3,12 @@ using UnityEngine;
 namespace NPLTV.Player.States
 {
     [System.Serializable]
-    public class KnockedState : PlayerState
+    public class KnockedOutState : PlayerState
     {
         [SerializeField]
         private float _currentTime = 0;
 
-        public KnockedState(PlayerManager owner, float knockedTime) : base(owner)
+        public KnockedOutState(PlayerManager owner, float knockedTime) : base(owner)
         {
             _currentTime = knockedTime;
         }
@@ -28,7 +28,7 @@ namespace NPLTV.Player.States
         {
             base.SetUp();
             owner.Motor.enabled = false;
-            Debug.Log("Knocked!");
+            Debug.Log("Knocked out!");
         }
 
         public override void ExitState()
@@ -36,7 +36,6 @@ namespace NPLTV.Player.States
             base.ExitState();
             owner.Motor.enabled = true;
             Debug.Log("Exit!");
-
         }
     }
 }

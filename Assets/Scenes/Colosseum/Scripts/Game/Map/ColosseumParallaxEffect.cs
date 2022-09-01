@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace NPLTV.Colosseum.Map
+namespace NPLTV.Colosseum.Game.Map
 {
     public class ColosseumParallaxEffect : MonoBehaviour
     {

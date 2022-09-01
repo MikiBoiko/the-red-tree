@@ -194,21 +194,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f959d9af4296be142b185b50599cee1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _stats:
-    weight: 110
-    hp: 90
-    strength: 110
-    agility: 120
-    endurance: 70
-  _input: {fileID: 376413204735340701}
-  interactables:
-    _availableInteractables: []
-    _selectedInteractable: {fileID: 0}
-  _abilitySystem:
+  <Stats>k__BackingField:
+    weight: 0
+    hp: 0
+    strength: 0
+    agility: 0
+    endurance: 0
+  <AbilitySystem>k__BackingField:
     owner: {fileID: 0}
   <Health>k__BackingField: {fileID: 0}
   <Motor>k__BackingField: {fileID: 0}
   <Animator>k__BackingField: {fileID: 0}
+  <StateInput>k__BackingField: {fileID: 0}
+  interactables:
+    _availableInteractables: []
+    _selectedInteractable: {fileID: 0}
   _selectedWeapon: {fileID: 0}
   _defaultWeapon: {fileID: 376413205278088877}
 --- !u!114 &376413204735340701
@@ -247,6 +247,8 @@ MonoBehaviour:
     m_Asset: {fileID: 0}
     m_Actions: []
     m_Bindings: []
+  <MoveValue>k__BackingField: {x: 0, y: 0}
+  <AimValue>k__BackingField: {x: 0, y: 0}
 --- !u!114 &376413204735340702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +370,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 7072699
-  m_SortingLayer: 2
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -516,7 +518,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 7072699
-  m_SortingLayer: 2
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.9797268, g: 0, b: 1, a: 0.48235294}
@@ -598,7 +600,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 7072699
-  m_SortingLayer: 2
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.9797268, g: 0, b: 1, a: 0.48235294}

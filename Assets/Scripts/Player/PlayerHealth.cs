@@ -37,7 +37,7 @@ namespace NPLTV.Player
         public override void Knock(Vector2 force, float amount, float time)
         {
             base.Knock(force, amount, time);
-            _manager.StateInput.SetState(new KnockedState(_manager, time));
+            _manager.StateInput.SetState(new KnockedOutState(_manager, time));
         }
     }
 }

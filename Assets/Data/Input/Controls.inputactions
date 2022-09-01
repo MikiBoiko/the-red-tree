@@ -586,6 +586,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "bedff29a-a5aa-4803-afcf-5ffded3444bb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Back",
                     "type": "Button",
                     "id": "e1a1f886-5fdd-4ac2-b5fb-233f7b9700ec",
@@ -600,39 +608,9 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Select",
-                    "type": "Button",
-                    "id": "bedff29a-a5aa-4803-afcf-5ffded3444bb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "bb46f4e1-ef10-40e6-bc4d-35aa79bd7846",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ab8c7312-d7d7-4646-ad6f-f7a924e84e29",
-                    "path": "<XInputController>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XBOX",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "d64994a0-2cc3-4c4e-9d65-4c5be13d89a3",
@@ -784,6 +762,28 @@
                     "processors": "",
                     "groups": "XBOX",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb46f4e1-ef10-40e6-bc4d-35aa79bd7846",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab8c7312-d7d7-4646-ad6f-f7a924e84e29",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XBOX",
+                    "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

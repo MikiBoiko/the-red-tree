@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace NPLTV.Colosseum.Game.Cameras
+namespace NPLTV.Colosseum.Game
 {
     public class ColosseumCameraController : CameraController
     {
@@ -21,7 +21,6 @@ namespace NPLTV.Colosseum.Game.Cameras
 
             // Update camera size
             float clampledSize = Mathf.Clamp(size.x / _dSize, _minSize, _maxSize);
-            Debug.Log(camera.aspect);
 
             camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, clampledSize, _sizeLerpTime);
             
@@ -44,9 +43,10 @@ namespace NPLTV.Colosseum.Game.Cameras
             SetOffset(Vector2.Max(Vector2.up * clampledSize / 2, Vector2.up * 2));
         }
 
-        public void SetMaxWidth(float maxWidth)
+        public static void SetMaxWidth(float maxWidth)
         {
-            _maxSize = maxWidth / camera.aspect / 2;
+            ColosseumCameraController cameraController = instance as ColosseumCameraController;
+            cameraController._maxSize = maxWidth / cameraController.camera.aspect / 2;
         }
 
         private IEnumerator UpdateCamera()

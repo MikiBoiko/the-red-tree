@@ -11,6 +11,7 @@ namespace NPLTV.Player
         public float speed;
         public float acceleratingForce;
         public float jumpForce;
+        public float fastFall;
         [SerializeField] private float _movingDirection;
         [field: SerializeField] public int Direction { private set; get; }
 
@@ -87,8 +88,11 @@ namespace NPLTV.Player
         {
             _movingDirection = direction.x;
 
-            if (direction.y < 0) physics.gravityScale = 1 - direction.y;
-            else physics.gravityScale = 1;
+            // Fast fall
+            physics.gravityScale = (direction.y < 0) ? 
+            1 - (direction.y * fastFall)
+            :
+            1;
         }
 
         public void Move(float x)
