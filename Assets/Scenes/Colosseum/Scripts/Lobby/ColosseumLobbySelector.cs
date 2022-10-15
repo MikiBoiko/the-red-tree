@@ -8,17 +8,17 @@ namespace NPLTV.Colosseum.Lobby
     {
         [SerializeField] private GridLayoutGroup _layout;
         [SerializeField] private Sprite _randomSelectionIconSprite;
-        [SerializeField] ColosseumDataSelection<T> _dataSelection;
+        public ColosseumDataSelection<T> Data;
         [SerializeField] private Transform[] _playerIndicators;
 
         public void InitializeData(GameObject selectionPrefab)
         {
-            _playerIndicators = new Transform[_dataSelection.dataSheet.Length + 1];
+            _playerIndicators = new Transform[Data.dataSheet.Length + 1];
             // Instantiate random selection
             _playerIndicators[0] = SetUpSelection(Instantiate(selectionPrefab, _layout.transform), 0);
             
             // For each element in data selection...
-            for (int i = 1; i <= _dataSelection.dataSheet.Length; i++)
+            for (int i = 1; i <= Data.dataSheet.Length; i++)
             {
                 _playerIndicators[i] = SetUpSelection(Instantiate(selectionPrefab, _layout.transform), i); ;
             }
@@ -34,38 +34,50 @@ namespace NPLTV.Colosseum.Lobby
             }
             else
             {
-                instantiatedTransform.Find("Grid Image").GetComponent<Image>().sprite = _dataSelection.dataSheet[index - 1].icon;
+                instantiatedTransform.Find("Grid Image").GetComponent<Image>().sprite = Data.dataSheet[index - 1].icon;
             }
 
             return instantiatedTransform.Find("Player Indicators").transform;
         }
 
-        public int SelectFrom(int from, Vector2 direction)
+        public int SelectFrom(int from, ColosseumLobbyDirection direction, Transform indicator)
         {
             int result = from;
-            if(direction.x > 0.5f)
+            switch (direction)
             {
-                result++;
+                case ColosseumLobbyDirection.Right:
+                    result++;
+                    break;
+                case ColosseumLobbyDirection.Left:
+                    result--;
+                    break;
+                case ColosseumLobbyDirection.Up:
+                    result += _layout.constraintCount;
+                    break;
+                case ColosseumLobbyDirection.Down:
+                    result -= _layout.constraintCount;
+                    break;
+                default:
+                    break;
             }
-            else if (direction.x < -0.5f)
-            {
-                result--;
-            }
-            if(direction.y > 0.5f)
-            {
-                result += _layout.constraintCount;
-            }
-            else if (direction.y < -0.5f)
-            {
-                result -= _layout.constraintCount;
-            }
-
-            return _dataSelection.ContainsAt(result - 1) || result == 0 ? result :  from;
+            if(result < 0) result += _playerIndicators.Length;
+            else result %= _playerIndicators.Length;
+            Select(result, indicator);
+            return result;
         }
 
-        public void Select(Transform indicator)
+        public void Select(int to, Transform indicator)
         {
+            indicator.gameObject.SetActive(true);
+            indicator.SetParent(_playerIndicators[to]);
+        }
 
+        public T GetValue(int index) {
+            return Data.dataSheet[index];
+        }
+
+        public T GetRandomValue() {
+            return Data.GetRandom();
         }
     }
 }

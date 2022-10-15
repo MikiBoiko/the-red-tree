@@ -198,6 +198,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "PS5",
+                    "id": "efe24032-a984-4460-a332-1db86e5be594",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "65b74a02-b586-4241-830b-ce14e6becf0e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS5",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "58359980-8651-47d0-99e8-f76edcfadd63",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS5",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "bbb6c11b-aac3-4e75-a450-5c6d84a76d83",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS5",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "0e88b9a0-3b05-470e-beeb-47ea62e52b73",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PS5",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "Keyboard",
                     "id": "94306b2e-8ef4-4357-87cb-91e0a85b75eb",
                     "path": "2DVector",
@@ -617,7 +672,7 @@
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Ready",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -628,7 +683,7 @@
                     "path": "<XInputController>/start",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "XBOX",
                     "action": "Ready",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -813,6 +868,17 @@
             "devices": [
                 {
                     "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "PS5",
+            "bindingGroup": "PS5",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

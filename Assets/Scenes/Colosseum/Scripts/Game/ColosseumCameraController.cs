@@ -9,6 +9,12 @@ namespace NPLTV.Colosseum.Game
         [SerializeField] [Range(0f, 1f)] private float _positionLerpTime, _sizeLerpTime;
         [SerializeField] private float _minSize, _maxSize;
         [SerializeField] [Range(1f, 10f)] private float _dSize = 2.5f;
+        private bool _refresh;
+
+        private new void Awake() {
+            base.Awake();
+            _refresh = false;    
+        }
 
         private void Start()
         {
@@ -17,7 +23,8 @@ namespace NPLTV.Colosseum.Game
 
         private void FixedUpdate()
         {
-            if (GameManager.Players.Count == 0 || GameManager.Players == null) return;
+            Debug.Log(_refresh);
+            if (!_refresh) return;
 
             // Update camera size
             float clampledSize = Mathf.Clamp(size.x / _dSize, _minSize, _maxSize);
@@ -32,6 +39,8 @@ namespace NPLTV.Colosseum.Game
                 cameraPosition.y,
                 -10
             );
+
+            Debug.Log(cameraPosition);
 
             transform.position = Vector3.Lerp(
                 transform.position, 
@@ -71,10 +80,10 @@ namespace NPLTV.Colosseum.Game
 
                 center = new Vector2(totalX, totalY) / GameManager.Players.Count;
                 size = new Vector2(maxX - minX, maxY - minY);
-
                 yield return new WaitForSeconds(_updateTick);
+                _refresh = true;
             
-            }
+            } else _refresh = false;
 
             StartCoroutine(UpdateCamera());
         }

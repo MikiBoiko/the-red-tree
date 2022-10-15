@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layout: {fileID: 1315478011}
   _randomSelectionIconSprite: {fileID: 0}
-  _dataSelection: {fileID: 11400000, guid: 4eb27c076a977d04ab7beea3cf62360a, type: 2}
+  Data: {fileID: 11400000, guid: 4eb27c076a977d04ab7beea3cf62360a, type: 2}
   _playerIndicators: []
 --- !u!1 &562082608
 GameObject:
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layout: {fileID: 1312994593}
   _randomSelectionIconSprite: {fileID: 0}
-  _dataSelection: {fileID: 11400000, guid: aa51d289cd4172d4999a0703251ed545, type: 2}
+  Data: {fileID: 11400000, guid: aa51d289cd4172d4999a0703251ed545, type: 2}
   _playerIndicators: []
 --- !u!1 &669446901
 GameObject:
@@ -516,7 +516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055116312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 268.92847, y: 995.26697, z: -71.698784}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -578,6 +578,9 @@ MonoBehaviour:
   _characterSelection: {fileID: 1189615936}
   _mapSelection: {fileID: 90412123}
   _gameModeSelection: {fileID: 562082610}
+  _ingameScene:
+    m_Handle: 0
+  _lobbyCamera: {fileID: 1275708826}
 --- !u!1 &1189615934
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layout: {fileID: 1296727877}
   _randomSelectionIconSprite: {fileID: 0}
-  _dataSelection: {fileID: 11400000, guid: 0c25b4a7188cd5345bccbe3c7f6d4afa, type: 2}
+  Data: {fileID: 11400000, guid: 0c25b4a7188cd5345bccbe3c7f6d4afa, type: 2}
   _playerIndicators: []
 --- !u!1 &1275708824
 GameObject:
@@ -644,7 +647,7 @@ GameObject:
   - component: {fileID: 1275708826}
   - component: {fileID: 1275708825}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Lobby Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -713,7 +716,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1296727875
 GameObject:
@@ -1109,7 +1112,7 @@ RectTransform:
   - {fileID: 775047778}
   - {fileID: 1616936864}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

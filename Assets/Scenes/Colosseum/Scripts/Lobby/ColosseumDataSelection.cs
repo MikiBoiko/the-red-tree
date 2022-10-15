@@ -13,5 +13,10 @@ namespace NPLTV.Colosseum.Lobby
         {
             return index >= 0 && index < dataSheet.Length;
         }
+
+        public T GetRandom() {
+            int random = Random.Range(0, dataSheet.Length);
+            return dataSheet[random];
+        }
     }
 }

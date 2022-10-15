@@ -439,3 +439,4 @@ MonoBehaviour:
   _selectionImage: {fileID: 4388396669829649647}
   _readyImage: {fileID: 7284427342441057733}
   _playerText: {fileID: 7284427342211538950}
+  _indicator: {fileID: 7924416380391390363}
