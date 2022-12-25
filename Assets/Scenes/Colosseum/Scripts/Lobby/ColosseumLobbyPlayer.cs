@@ -37,6 +37,7 @@ namespace NPLTV.Colosseum.Lobby
             ColosseumLobbyManager.JoinPlayer(this);
 
             actions.FindActionMap("Menu").Enable();
+            currentActionMap.RemoveAllBindingOverrides();
             SwitchCurrentActionMap("Menu");
 
             currentActionMap["Ready"].performed += ctx =>
@@ -108,7 +109,6 @@ namespace NPLTV.Colosseum.Lobby
         }
 
         private IEnumerator DisconnectAsync() {
-            currentActionMap.asset["Ready"] = new InputAction();
             _indicator.SetParent(transform);
             yield return new WaitForFixedUpdate();
             ColosseumLobbyManager.DisconnectPlayer(this, _index);
